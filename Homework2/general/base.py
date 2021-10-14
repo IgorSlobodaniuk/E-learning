@@ -5,9 +5,6 @@ class BaseAnalyzer:
     def __init__(self, input_text):
         self.input_text = input_text
 
-    def _get_characters(self):
-        return self.input_text
-
     def _get_words(self):
         return self.input_text.split()
 
