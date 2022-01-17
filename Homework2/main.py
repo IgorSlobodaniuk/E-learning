@@ -3,6 +3,7 @@ from general.statistic import Statistic
 from general.rating import Rating
 from general.transformation import Transformation
 from time import perf_counter
+from db.db_processing import add_new_record
 
 
 def analyze(text):
@@ -10,10 +11,17 @@ def analyze(text):
     s = Statistic(text)
     r = Rating(text)
     t = Transformation(text)
-    print(s.get_statistic(), '\n')
-    print(r.rate_text(), '\n')
-    print(t.transform(), '\n')
+    statistic = s.get_statistic()
+    rating = r.rate_text()
+    transformation = t.transform()
     print(f'Date and time when the report was generated: {datetime.now()}')
+
+    add_new_record(
+        text=text,
+        statistic=statistic,
+        rating=rating,
+        transformation=transformation
+    )
     end = perf_counter()
     print('Duration: ', round(end - start, 2))
 
