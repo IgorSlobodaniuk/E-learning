@@ -1,0 +1,1 @@
+INPUT_TEXT = 'My input text just for testing. Another text for testing. And one more text'
