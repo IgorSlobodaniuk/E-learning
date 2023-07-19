@@ -39,4 +39,3 @@ class User(object):
         self._validate_input(cash)
         self.balance += cash
         return f'{self.name} has {self.balance}.'
-    
